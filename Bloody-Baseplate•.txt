@@ -123,6 +123,7 @@ end
 
 Player.CharacterAdded:Connect(FindSword)
 FindSword()
+
 end)
 
 tab.newButton("(100)", "Reach", function()
@@ -162,6 +163,7 @@ end
 
 Player.CharacterAdded:Connect(FindSword)
 FindSword()
+
 end)
 
 tab.newButton("---Additional Features---", "Additional Features Section", function()
