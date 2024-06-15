@@ -1,0 +1,180 @@
+local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
+local window = DrRayLibrary:Load("Bloody Baseplate 💫", "Default")
+
+local tab = DrRayLibrary.newTab("Main", "ImageIdHere")
+
+tab.newButton("---Admin Commands GUI---", "Admin Commands GUI Section", function()
+    print('Admin Commands GUI Section')
+end)
+
+tab.newButton("Nameless Admin", "Admin Commands", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))()
+end)
+
+tab.newButton("Infinite Yield", "Admin Commands2", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+
+tab.newButton("Ghost Hub", "Fun Hub And Stuffs", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
+end)
+
+tab.newButton("---Hitboxes---", "Hitboxes Section", function()
+    print('Hitboxes Section')
+end)
+
+tab.newButton("(7)", "Hitbox", function()
+local HeadSize = 7
+local IsDisabled = true
+local IsTeamCheckEnabled = false
+
+game:GetService('RunService').RenderStepped:Connect(function()
+if IsDisabled then
+local localPlayer = game:GetService('Players').LocalPlayer
+if not localPlayer then return end
+
+local localPlayerTeam = localPlayer.Team
+
+for _, player in ipairs(game:GetService('Players'):GetPlayers()) do
+if player ~= localPlayer and (not IsTeamCheckEnabled or player.Team ~= localPlayerTeam) then
+local humanoidRootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+if humanoidRootPart then
+humanoidRootPart.Size = Vector3.new(HeadSize, HeadSize, HeadSize)
+humanoidRootPart.Transparency = 1
+humanoidRootPart.BrickColor = BrickColor.new("Really blue")
+humanoidRootPart.Material = Enum.Material.Neon
+humanoidRootPart.CanCollide = false
+end
+end
+end
+end
+end)
+
+end)
+
+tab.newButton("(10)", "Hitbox", function()
+local HeadSize = 10
+local IsDisabled = true
+local IsTeamCheckEnabled = false
+
+game:GetService('RunService').RenderStepped:Connect(function()
+if IsDisabled then
+local localPlayer = game:GetService('Players').LocalPlayer
+if not localPlayer then return end
+
+local localPlayerTeam = localPlayer.Team
+
+for _, player in ipairs(game:GetService('Players'):GetPlayers()) do
+if player ~= localPlayer and (not IsTeamCheckEnabled or player.Team ~= localPlayerTeam) then
+local humanoidRootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+if humanoidRootPart then
+humanoidRootPart.Size = Vector3.new(HeadSize, HeadSize, HeadSize)
+humanoidRootPart.Transparency = 1
+humanoidRootPart.BrickColor = BrickColor.new("Really blue")
+humanoidRootPart.Material = Enum.Material.Neon
+humanoidRootPart.CanCollide = false
+end
+end
+end
+end
+end)
+
+end)
+
+tab.newButton("---Reach---", "Reach Section", function()
+    print('Reach Section')
+end)
+
+tab.newButton("(9)", "Reach", function()
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local SwordName
+local SelectionBoxObject
+local HandleObject
+local SelectionBoxKeybind = Enum.KeyCode.E --no need to change this, doesn't work
+local ReachVector = 10
+local Player = Players.LocalPlayer
+local Backpack = Player:FindFirstChild("Backpack")
+repeat
+    wait()
+until Backpack
+
+local function SetupReach(Sword)
+    local Handle = Sword:FindFirstChild("Handle")
+    local SelectionBox = Instance.new("SelectionBox")
+    SelectionBox.Parent = Handle
+    SelectionBox.Adornee = Handle
+    Handle.Massless = true
+    Handle.Size = Vector3.new(1, 1, ReachVector)
+    SelectionBox = SelectionBox
+end
+
+local function FindSword()
+    for i,v in pairs(Backpack:GetChildren()) do
+        local Handle = v:FindFirstChild("Handle")
+        if Handle then
+            SwordName = v.Name
+            SetupReach(v)
+            break
+        end
+    end
+end
+
+Player.CharacterAdded:Connect(FindSword)
+FindSword()
+end)
+
+tab.newButton("(100)", "Reach", function()
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local SwordName
+local SelectionBoxObject
+local HandleObject
+local SelectionBoxKeybind = Enum.KeyCode.E --no need to change this, doesn't work
+local ReachVector = 100
+local Player = Players.LocalPlayer
+local Backpack = Player:FindFirstChild("Backpack")
+repeat
+    wait()
+until Backpack
+
+local function SetupReach(Sword)
+    local Handle = Sword:FindFirstChild("Handle")
+    local SelectionBox = Instance.new("SelectionBox")
+    SelectionBox.Parent = Handle
+    SelectionBox.Adornee = Handle
+    Handle.Massless = true
+    Handle.Size = Vector3.new(1, 1, ReachVector)
+    SelectionBox = SelectionBox
+end
+
+local function FindSword()
+    for i,v in pairs(Backpack:GetChildren()) do
+        local Handle = v:FindFirstChild("Handle")
+        if Handle then
+            SwordName = v.Name
+            SetupReach(v)
+            break
+        end
+    end
+end
+
+Player.CharacterAdded:Connect(FindSword)
+FindSword()
+end)
+
+tab.newButton("---Additional Features---", "Additional Features Section", function()
+    print('If You Found Me Chat In My Server Then DM Me And Say "10 ROBUX" For 10 robux :)')
+end)
+
+tab.newButton("Shiftlock", "V1", function()
+loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Permanent-Shiftlock-V2-14049"))()
+end)
+
+tab.newButton("Instant Interact", "Use This For The Backrooms Badge", function()
+game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
+  fireproximityprompt(prompt)
+end)
+
+end)
