@@ -20,8 +20,8 @@ tab.newButton("Ghost Hub", "Fun Hub And Stuffs", function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
 end)
 
-tab.newButton("---OP's---", "Over Powered's Section", function()
-    print('Over Powered's Section')
+tab.newButton("---OP---", "OP Section", function()
+    print('OP Section')
 end)
 
 tab.newButton("Hitbox", "Combat Reach", function()
