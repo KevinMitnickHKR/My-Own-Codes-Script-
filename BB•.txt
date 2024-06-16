@@ -260,27 +260,6 @@ tab.newButton("---OP's---", "Over Powered's Section", function()
     print('Over Powered's Section')
 end)
 
-tab.newButton("No CD Kick Button", "Infinite Kick:0", function()
-local button = Instance.new("TextButton")
-button.Size = UDim2.new(0, 100, 0, 30)
-button.Position = UDim2.new(0, 10, 0, 10)
-button.Text = "Kick!"
-button.Font = Enum.Font.SourceSans
-button.FontSize = Enum.FontSize.Size24
-button.TextColor3 = Color3.new(1, 1, 1)
-button.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
-
-local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = game.Players.LocalPlayer.PlayerGui
-
-button.Parent = screenGui
-
-button.MouseButton1Click:Connect(function()
-game:GetService("Players").LocalPlayer.Character.KICK.RemoteEvent:FireServer()
-end)
-
-end)
-
 tab.newButton("---Additional Features---", "Additional Features Section", function()
     print('If You Found Me Chat In My Server Then DM Me And Say "10 ROBUX" For 10 robux :)')
 end)
