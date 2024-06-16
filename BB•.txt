@@ -61,11 +61,43 @@ screenGui.Parent = game.Players.LocalPlayer.PlayerGui
 
 button.Parent = screenGui
 
+local UserInputService = game:GetService("UserInputService")
+
+local dragToggle = nil
+local dragInput = nil
+local dragStart = nil
+local startPos = nil
+
+local function updateInput(input)
+    local delta = input.Position - dragStart
+    button.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+button.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Touch then
+        dragToggle = true
+        dragStart = input.Position
+        startPos = button.Position
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragToggle = false
+            end
+        end)
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if dragToggle and input.UserInputType == Enum.UserInputType.Touch then
+        updateInput(input)
+    end
+end)
+
 button.MouseButton1Click:Connect(function()
-game:GetService("Players").LocalPlayer.Character.KICK.RemoteEvent:FireServer()
+    game:GetService("Players").LocalPlayer.Character.KICK.RemoteEvent:FireServer()
 end)
 
 end)
+
 tab.newButton("---Additional Features---", "Additional Features Section", function()
     print('If You Found Me Chat In My Server Then DM Me And Say "10 ROBUX" For 10 robux :)')
 end)
