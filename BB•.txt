@@ -24,6 +24,28 @@ tab.newButton("---OP's---", "Over Powered's Section", function()
     print('Over Powered's Section')
 end)
 
+tab.newButton("Hitbox", "Combat Reach", function()
+_G.HeadSize = 10
+_G.Disabled = true
+ 
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 1
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really blue")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+
+end)
+
 tab.newButton("---Additional Features---", "Additional Features Section", function()
     print('If You Found Me Chat In My Server Then DM Me And Say "10 ROBUX" For 10 robux :)')
 end)
