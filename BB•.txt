@@ -24,8 +24,8 @@ tab.newButton("---Hitboxes---", "Hitboxes Section", function()
     print('Hitboxes Section')
 end)
 
-tab.newButton("(7)", "Hitbox", function()
-local HeadSize = 7
+tab.newButton("(5)", "Hitbox", function()
+local HeadSize = 5
 local IsDisabled = true
 local IsTeamCheckEnabled = false
 
@@ -82,87 +82,202 @@ end)
 
 end)
 
-tab.newButton("---Reach---", "Reach Section", function()
-    print('Reach Section')
+tab.newButton("(15)", "Hitbox", function()
+local HeadSize = 15
+local IsDisabled = true
+local IsTeamCheckEnabled = false
+
+game:GetService('RunService').RenderStepped:Connect(function()
+if IsDisabled then
+local localPlayer = game:GetService('Players').LocalPlayer
+if not localPlayer then return end
+
+local localPlayerTeam = localPlayer.Team
+
+for _, player in ipairs(game:GetService('Players'):GetPlayers()) do
+if player ~= localPlayer and (not IsTeamCheckEnabled or player.Team ~= localPlayerTeam) then
+local humanoidRootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+if humanoidRootPart then
+humanoidRootPart.Size = Vector3.new(HeadSize, HeadSize, HeadSize)
+humanoidRootPart.Transparency = 1
+humanoidRootPart.BrickColor = BrickColor.new("Really blue")
+humanoidRootPart.Material = Enum.Material.Neon
+humanoidRootPart.CanCollide = false
+end
+end
+end
+end
 end)
-
-tab.newButton("(9)", "Reach", function()
-local Players = game:GetService("Players")
-local UserInputService = game:GetService("UserInputService")
-local SwordName
-local SelectionBoxObject
-local HandleObject
-local SelectionBoxKeybind = Enum.KeyCode.E --no need to change this, doesn't work
-local ReachVector = 10
-local Player = Players.LocalPlayer
-local Backpack = Player:FindFirstChild("Backpack")
-repeat
-    wait()
-until Backpack
-
-local function SetupReach(Sword)
-    local Handle = Sword:FindFirstChild("Handle")
-    local SelectionBox = Instance.new("SelectionBox")
-    SelectionBox.Parent = Handle
-    SelectionBox.Adornee = Handle
-    Handle.Massless = true
-    Handle.Size = Vector3.new(1, 1, ReachVector)
-    SelectionBox = SelectionBox
-end
-
-local function FindSword()
-    for i,v in pairs(Backpack:GetChildren()) do
-        local Handle = v:FindFirstChild("Handle")
-        if Handle then
-            SwordName = v.Name
-            SetupReach(v)
-            break
-        end
-    end
-end
-
-Player.CharacterAdded:Connect(FindSword)
-FindSword()
 
 end)
 
-tab.newButton("(100)", "Reach", function()
-local Players = game:GetService("Players")
-local UserInputService = game:GetService("UserInputService")
-local SwordName
-local SelectionBoxObject
-local HandleObject
-local SelectionBoxKeybind = Enum.KeyCode.E --no need to change this, doesn't work
-local ReachVector = 100
-local Player = Players.LocalPlayer
-local Backpack = Player:FindFirstChild("Backpack")
-repeat
-    wait()
-until Backpack
+tab.newButton("(20)", "Hitbox", function()
+local HeadSize = 20
+local IsDisabled = true
+local IsTeamCheckEnabled = false
 
-local function SetupReach(Sword)
-    local Handle = Sword:FindFirstChild("Handle")
-    local SelectionBox = Instance.new("SelectionBox")
-    SelectionBox.Parent = Handle
-    SelectionBox.Adornee = Handle
-    Handle.Massless = true
-    Handle.Size = Vector3.new(1, 1, ReachVector)
-    SelectionBox = SelectionBox
+game:GetService('RunService').RenderStepped:Connect(function()
+if IsDisabled then
+local localPlayer = game:GetService('Players').LocalPlayer
+if not localPlayer then return end
+
+local localPlayerTeam = localPlayer.Team
+
+for _, player in ipairs(game:GetService('Players'):GetPlayers()) do
+if player ~= localPlayer and (not IsTeamCheckEnabled or player.Team ~= localPlayerTeam) then
+local humanoidRootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+if humanoidRootPart then
+humanoidRootPart.Size = Vector3.new(HeadSize, HeadSize, HeadSize)
+humanoidRootPart.Transparency = 1
+humanoidRootPart.BrickColor = BrickColor.new("Really blue")
+humanoidRootPart.Material = Enum.Material.Neon
+humanoidRootPart.CanCollide = false
 end
-
-local function FindSword()
-    for i,v in pairs(Backpack:GetChildren()) do
-        local Handle = v:FindFirstChild("Handle")
-        if Handle then
-            SwordName = v.Name
-            SetupReach(v)
-            break
-        end
-    end
 end
+end
+end
+end)
 
-Player.CharacterAdded:Connect(FindSword)
-FindSword()
+end)
+
+tab.newButton("(25)", "Hitbox", function()
+local HeadSize = 25
+local IsDisabled = true
+local IsTeamCheckEnabled = false
+
+game:GetService('RunService').RenderStepped:Connect(function()
+if IsDisabled then
+local localPlayer = game:GetService('Players').LocalPlayer
+if not localPlayer then return end
+
+local localPlayerTeam = localPlayer.Team
+
+for _, player in ipairs(game:GetService('Players'):GetPlayers()) do
+if player ~= localPlayer and (not IsTeamCheckEnabled or player.Team ~= localPlayerTeam) then
+local humanoidRootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+if humanoidRootPart then
+humanoidRootPart.Size = Vector3.new(HeadSize, HeadSize, HeadSize)
+humanoidRootPart.Transparency = 1
+humanoidRootPart.BrickColor = BrickColor.new("Really blue")
+humanoidRootPart.Material = Enum.Material.Neon
+humanoidRootPart.CanCollide = false
+end
+end
+end
+end
+end)
+
+end)
+
+tab.newButton("(30)", "Hitbox", function()
+local HeadSize = 30
+local IsDisabled = true
+local IsTeamCheckEnabled = false
+
+game:GetService('RunService').RenderStepped:Connect(function()
+if IsDisabled then
+local localPlayer = game:GetService('Players').LocalPlayer
+if not localPlayer then return end
+
+local localPlayerTeam = localPlayer.Team
+
+for _, player in ipairs(game:GetService('Players'):GetPlayers()) do
+if player ~= localPlayer and (not IsTeamCheckEnabled or player.Team ~= localPlayerTeam) then
+local humanoidRootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+if humanoidRootPart then
+humanoidRootPart.Size = Vector3.new(HeadSize, HeadSize, HeadSize)
+humanoidRootPart.Transparency = 1
+humanoidRootPart.BrickColor = BrickColor.new("Really blue")
+humanoidRootPart.Material = Enum.Material.Neon
+humanoidRootPart.CanCollide = false
+end
+end
+end
+end
+end)
+
+end)
+
+tab.newButton("(35)", "Hitbox", function()
+local HeadSize = 35
+local IsDisabled = true
+local IsTeamCheckEnabled = false
+
+game:GetService('RunService').RenderStepped:Connect(function()
+if IsDisabled then
+local localPlayer = game:GetService('Players').LocalPlayer
+if not localPlayer then return end
+
+local localPlayerTeam = localPlayer.Team
+
+for _, player in ipairs(game:GetService('Players'):GetPlayers()) do
+if player ~= localPlayer and (not IsTeamCheckEnabled or player.Team ~= localPlayerTeam) then
+local humanoidRootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+if humanoidRootPart then
+humanoidRootPart.Size = Vector3.new(HeadSize, HeadSize, HeadSize)
+humanoidRootPart.Transparency = 1
+humanoidRootPart.BrickColor = BrickColor.new("Really blue")
+humanoidRootPart.Material = Enum.Material.Neon
+humanoidRootPart.CanCollide = false
+end
+end
+end
+end
+end)
+
+end)
+
+tab.newButton("(40)", "Hitbox", function()
+local HeadSize = 40
+local IsDisabled = true
+local IsTeamCheckEnabled = false
+
+game:GetService('RunService').RenderStepped:Connect(function()
+if IsDisabled then
+local localPlayer = game:GetService('Players').LocalPlayer
+if not localPlayer then return end
+
+local localPlayerTeam = localPlayer.Team
+
+for _, player in ipairs(game:GetService('Players'):GetPlayers()) do
+if player ~= localPlayer and (not IsTeamCheckEnabled or player.Team ~= localPlayerTeam) then
+local humanoidRootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+if humanoidRootPart then
+humanoidRootPart.Size = Vector3.new(HeadSize, HeadSize, HeadSize)
+humanoidRootPart.Transparency = 1
+humanoidRootPart.BrickColor = BrickColor.new("Really blue")
+humanoidRootPart.Material = Enum.Material.Neon
+humanoidRootPart.CanCollide = false
+end
+end
+end
+end
+end)
+
+end)
+
+tab.newButton("---OP's---", "Over Powered's Section", function()
+    print('Over Powered's Section')
+end)
+
+tab.newButton("No CD Kick Button", "Infinite Kick:0", function()
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(0, 100, 0, 30)
+button.Position = UDim2.new(0, 10, 0, 10)
+button.Text = "Kick!"
+button.Font = Enum.Font.SourceSans
+button.FontSize = Enum.FontSize.Size24
+button.TextColor3 = Color3.new(1, 1, 1)
+button.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer.PlayerGui
+
+button.Parent = screenGui
+
+button.MouseButton1Click:Connect(function()
+game:GetService("Players").LocalPlayer.Character.KICK.RemoteEvent:FireServer()
+end)
 
 end)
 
