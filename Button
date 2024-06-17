@@ -4,7 +4,7 @@ screenGui.Parent = game.Players.LocalPlayer.PlayerGui
 local button = Instance.new("TextButton")
 button.Size = UDim2.new(0, 100, 0, 30)
 button.Position = UDim2.new(0, 10, 0, 10)
-button.Text = "Kick!"
+button.Text = "Ultimate!"
 button.Font = Enum.Font.SourceSans
 button.FontSize = Enum.FontSize.Size24
 button.TextColor3 = Color3.new(1, 1, 1)
@@ -66,5 +66,24 @@ end)
 toggleButton.MouseButton1Click:Connect(toggleDraggable)
 
 button.MouseButton1Click:Connect(function()
-game:GetService("Players").LocalPlayer.Character.KICK.RemoteEvent:FireServer()
+local player = game:GetService("Players").LocalPlayer
+local character = player.Character
+
+local function checkTool()
+local tool = character:FindFirstChildWhichIsA("Tool")
+if tool then
+if tool:FindFirstChild("Ultimate") then
+local toolName = tool.Name
+game:GetService("Players").LocalPlayer.Character[toolName].RemoteEvent:FireServer()
+end
+end
+end
+
+character.ChildAdded:Connect(checkTool)
+character.ChildRemoved:Connect(function(child)
+if child:IsA("Tool") then
+checkTool()
+end
+end)
+
 end)
