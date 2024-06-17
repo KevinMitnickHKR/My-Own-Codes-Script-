@@ -66,24 +66,5 @@ end)
 toggleButton.MouseButton1Click:Connect(toggleDraggable)
 
 button.MouseButton1Click:Connect(function()
-local player = game:GetService("Players").LocalPlayer
-local character = player.Character
-
-local function checkTool()
-local tool = character:FindFirstChildWhichIsA("Tool")
-if tool then
-if tool:FindFirstChild("Ultimate") then
-local toolName = tool.Name
-game:GetService("Players").LocalPlayer.Character[toolName].RemoteEvent:FireServer()
-end
-end
-end
-
-character.ChildAdded:Connect(checkTool)
-character.ChildRemoved:Connect(function(child)
-if child:IsA("Tool") then
-checkTool()
-end
-end)
 
 end)
